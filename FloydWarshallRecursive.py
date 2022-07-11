@@ -5,7 +5,6 @@ j = 0
 global i 
 i = 0
 
-
 def function_j(dist):
     global j
     global i
@@ -49,6 +48,10 @@ def printSolution(dist):
                 print ("%7d\t" % (dist[i][j]),end=' ')
             if j == V-1:
                 print ()
+                
+def check_increments():
+    print("j, i, k:",j ,i, k)
+    return k
 
                 
 graph = [[0, 5, INF, 10],
@@ -60,4 +63,5 @@ graph = [[0, 5, INF, 10],
 dist = list(map(lambda i: list(map(lambda j: j, i)), graph))
 
 function_j(dist)
+
 
