@@ -6,16 +6,10 @@ global i
 i = 0
 
 
-
-
-"""def floydWarshall(graph):
-    
-    return function_j(dist)"""
-
 def function_j(dist):
     global j
     global i
-    if j>V:
+    if j>=V:
         i += 1
         j = 0
         return function_i(dist)
@@ -29,7 +23,9 @@ def function_j(dist):
         return function_j(dist)
 
 def function_i(dist):
-    if i>V:
+    global i
+    global k
+    if i>=V:
         k += 1
         i = 0
         return function_k(dist)
@@ -37,13 +33,14 @@ def function_i(dist):
         return function_j(dist)
         
 def function_k(dist):
-    if k>V:
+    global k
+    if k>=V:
         return printSolution(dist)
     if k in range(V):
         return function_i(dist)
         
 def printSolution(dist):
-    print ("The shortest paths between each pair are shown in the matrix:")
+    print ("The shortest paths between each pair are shown in the matrix below:")
     for i in range(V):
         for j in range(V):
             if(dist[i][j] == INF):
@@ -64,4 +61,3 @@ dist = list(map(lambda i: list(map(lambda j: j, i)), graph))
 
 function_j(dist)
 
-"""floydWarshall(graph)"""
